@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-nav-bar title="账号登录" left-arrow />
+    <van-nav-bar title="账号登录" left-arrow @click-left="$router.back()" />
     <van-form @submit="onSubmit" ref="form">
       <van-field
         v-model="username"
@@ -56,13 +56,13 @@ export default {
         this.$store.commit('setUser', res.data.body.token)
         if (res.data.body.token) {
           this.$toast.success('登陆成功')
-          this.$router.replace('/home')
+          this.$router.replace('/my')
         }
       } catch (err) {
         this.$toast.fail('登陆失败')
 
       }
-    }
+    },
   },
   computed: {},
   watch: {},
@@ -72,21 +72,24 @@ export default {
 </script>
 
 <style scoped lang="less">
+/deep/ .van-nav-bar {
+  // max-width: unset;
+  width: 100%;
+}
 .login-btn {
-  width: 694px;
-  height: 100px;
+  width: 347px;
+  height: 50px;
   line-height: 100px;
   background-color: #1cb676;
   border-radius: 4px;
   color: #ffffff;
-  font-size: 36px;
+  font-size: 18px;
 }
 .form {
-  height: 120px;
-  width: 790px;
-  line-height: 120px;
-  font-size: 36px;
+  height: 60px;
+  width: 345px;
+  line-height: 60px;
+  font-size: 18px;
   padding: 2px 36px;
-  // border-bottom: 2px solid ;
 }
 </style> 
