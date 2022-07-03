@@ -6,6 +6,7 @@ const House = () => import('@/views/House')
 const News = () => import('@/views/News')
 const My = () => import('@/views/My')
 const Login = () => import('@/views/Login')
+const cityList = () => import('@/views/cityList')
 Vue.use(VueRouter)
 
 const routes = [
@@ -34,6 +35,10 @@ const routes = [
   {
     path: '/login',
     component: Login
+  },
+  {
+    path: '/citylist',
+    component: cityList
   }
 ]
 

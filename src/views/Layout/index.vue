@@ -28,10 +28,10 @@ export default {
 </script>
 
 <style scoped lang="less">
-.toutiao {
-  font-size: 40px;
+.van-tabbar-item {
+  font-size: 22px;
 }
 /deep/ .van-tabbar-item__text {
-  font-size: 20px !important;
+  font-size: 12px !important;
 }
 </style>

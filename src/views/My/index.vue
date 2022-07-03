@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- 头部 -->
     <div class="My_title">
       <!-- 已登录 -->
       <div class="header header-login" v-if="user">
@@ -36,12 +37,25 @@
         </div>
       </div>
     </div>
+
+    <div>
+      <van-grid :column-num="3" :border="false">
+        <van-grid-item icon="star-o" text="我的收藏" />
+        <van-grid-item icon="wap-home-o" text="我的出租" />
+        <van-grid-item icon="clock-o" text="看房记录" />
+        <van-grid-item icon="idcard" text="成为房主" />
+        <van-grid-item icon="contact" text="个人资料" />
+        <van-grid-item icon="service-o" text="联系我们" />
+      </van-grid>
+    </div>
+
+    <img src="@/assets/join.png" alt="" />
   </div>
 </template>
 
 <script>
 import { getUserInfo, logout } from '@/api/user'
-import { mapState,mapMutations } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import { Dialog } from 'vant';
 export default {
   created () {
@@ -54,13 +68,13 @@ export default {
     }
   },
   methods: {
-     async logoutfn () {
+    async logoutfn () {
       const res = await logout()
       console.log(res);
-  if(res.data.status ===200){
-    console.log('退出成功');
-    this.remove()
-  }
+      if (res.data.status === 200) {
+        console.log('退出成功');
+        this.remove()
+      }
     },
     async getUserInfo () {
       console.log(this.user);
@@ -76,8 +90,8 @@ export default {
       })
         .then(() => {
 
-    this.logoutfn()
-          
+          this.logoutfn()
+
         })
         .catch(() => {
           // on cancel
@@ -111,7 +125,7 @@ export default {
     height: 208px;
     background-color: rgb(255, 255, 255);
     margin: 0 auto;
-    box-shadow: 2px 2px 2px 2px rgba(165, 165, 165, 0.2);
+    box-shadow: 2px 2px 5px 2px rgba(165, 165, 165, 0.2);
 
     .van-image {
       position: absolute;
@@ -144,8 +158,10 @@ export default {
 }
 .My_title {
   width: 375px;
-  height: 300px;
+  min-height: 300px;
+  max-height: 375px;
   text-align: center;
+  margin-bottom: 5px;
   .header-notlogin {
     position: relative;
     width: 375px;
@@ -182,5 +198,9 @@ export default {
       background-color: #21b97a;
     }
   }
+}
+img {
+  width: 375px;
+  // height: 40px;
 }
 </style>
