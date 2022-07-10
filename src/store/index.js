@@ -9,7 +9,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: ''
+    user: '',
+    city: {
+      label: "广州",
+      pinyin: "guangzhou",
+      short: "gz",
+      value: "AREA|e4940177-c04c-383d"
+
+    }
   },
   getters: {
   },
@@ -19,12 +26,15 @@ export default new Vuex.Store({
     },
     remove (state) {
       state.user = ''
+    },
+    city (state, payload) {
+      state.city = payload
     }
   },
   actions: {
   },
   modules: {
   },
-  plugins: [vuexLocal.plugin]
+  plugins: [vuexLocal.plugin]  // 本地数据持久化
 
 })

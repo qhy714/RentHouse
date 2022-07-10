@@ -14,7 +14,7 @@
       <van-search show-action placeholder="请输入小区或地址" @search="onSearch">
         <template #label>
           <div @click="$router.push('/citylist')">
-            北京
+            {{$store.state.city.label}}
             <van-icon name="arrow-down" />
           </div>
         </template>
@@ -41,7 +41,7 @@
           <img src="@/assets/zufang3.png" alt="" />
         </template>
       </van-grid-item>
-      <van-grid-item icon="photo-o" text="去出租">
+      <van-grid-item icon="photo-o" text="去出租" @click="$router.push('torent')">
         <template #icon>
           <img src="@/assets/zufang4.png" alt="" />
         </template>

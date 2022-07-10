@@ -40,8 +40,8 @@
 
     <div>
       <van-grid :column-num="3" :border="false">
-        <van-grid-item icon="star-o" text="我的收藏" />
-        <van-grid-item icon="wap-home-o" text="我的出租" />
+        <van-grid-item icon="star-o" text="我的收藏" @click="$router.push({path:'/houseresourse', query:{ title:'我的收藏',type:2}})" />
+        <van-grid-item icon="wap-home-o" text="我的出租" @click="$router.push({path:'/houseresourse', query:{ title:'房屋管理',type:1}})"/>
         <van-grid-item icon="clock-o" text="看房记录" />
         <van-grid-item icon="idcard" text="成为房主" />
         <van-grid-item icon="contact" text="个人资料" />

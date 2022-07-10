@@ -18,3 +18,8 @@ export const getCityList = () => {
         }
     })
 }
+export const hotcity = () => {
+    return request({
+        url: '/area/hot'
+    })
+}

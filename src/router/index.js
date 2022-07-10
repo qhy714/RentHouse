@@ -7,12 +7,16 @@ const News = () => import('@/views/News')
 const My = () => import('@/views/My')
 const Login = () => import('@/views/Login')
 const cityList = () => import('@/views/cityList')
+const HouseResourse = () => import('@/components/houseResource.vue')
+const ToRent = () => import('@/views/ToRent')
 Vue.use(VueRouter)
+const HouseDetails = () => import('@/views/HouseDetail')
 
 const routes = [
   {
     path: '/',
     component: Layout,
+    redirect: '/home',
     children: [
       {
         path: 'home',
@@ -39,6 +43,19 @@ const routes = [
   {
     path: '/citylist',
     component: cityList
+  },
+  {
+    path: '/houseresourse',
+    component: HouseResourse
+
+  },
+  {
+    path: '/torent',
+    component: ToRent,
+  },
+  {
+    path: '/housedetails',
+    component: HouseDetails
   }
 ]
 
